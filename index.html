@@ -4,10 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sakura Sushi Bar - Autentyczne Sushi w Częstochowie</title>
-    <link rel="stylesheet" href="style.css">
-
     <meta name="description" content="Odkryj autentyczne smaki Japonii w Sakura Sushi Bar w sercu Częstochowy. Oferujemy świeże sushi, zestawy lunchowe i dostawę. Sprawdź nasze menu i zarezerwuj stolik!">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Noto+Serif+JP:wght@400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="style.css" as="style">
+    <link rel="preload" href="./photos/sushi.webp" as="image" imagesrcset="./photos/sushi.webp 1500w, ./photos/sushi.jpg 1500w" imagesizes="100vw">
+    <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Noto+Serif+JP:wght@400;600;700&display=swap">
+        <link rel="stylesheet" href="style.css">
+    </noscript>
 </head>
 <body>
 
@@ -44,7 +51,11 @@
 <section id="o-nas" class="about">
     <h2>Kim jesteśmy?</h2>
     <p>Jesteśmy zespołem pasjonatów, dla których kuchnia japońska to filozofia życia. Nasz szef kuchni, z wieloletnim doświadczeniem zdobytym w renomowanych restauracjach w Kioto i Tokio, czuwa nad każdym detalem, od wyboru składników po finalną prezentację na talerzu. Wierzymy, że autentyczność i szacunek do tradycji mogą iść w parze z nowoczesną kreatywnością. Zapraszamy do miejsca, gdzie każdy gość traktowany jest z najwyższą starannością, a każdy posiłek staje się wyjątkowym przeżyciem.</p>
-    <img src="./photos/sushi.jpg" alt="Zespół restauracji Sakura Sushi Bar">
+    <picture>
+        <source srcset="./photos/sushi.webp" type="image/webp">
+        <source srcset="./photos/sushi.jpg" type="image/jpeg">
+        <img src="./photos/sushi.jpg" width="1500" height="1000" loading="lazy" decoding="async" alt="Zespół restauracji Sakura Sushi Bar">
+    </picture>
 </section>
 
 <section id="oferta" class="services">
@@ -52,17 +63,29 @@
     <div class="service">
         <h3>Sushi w Restauracji – Ceremonia Smaku</h3>
         <p>Zapraszamy do serca naszego świata, gdzie sushi staje się prawdziwym spektaklem. Nasze wnętrze, zaprojektowane w duchu japońskiego minimalizmu, tworzy atmosferę spokoju i harmonii, idealną do celebrowania posiłku. Usiądź przy naszym otwartym sushi barze i obserwuj, jak nasi mistrzowie z artystyczną precyzją komponują każdą rolkę. To nie tylko posiłek, ale interaktywne doświadczenie, podczas którego możesz podziwiać kunszt i świeżość składników na własne oczy. Nasz zespół kelnerski, kierując się zasadami *omotenashi*, zapewni dyskretną i troskliwą obsługę, doradzając w wyborze dań i idealnie dopasowanego sake. Niezależnie od tego, czy planujesz romantyczną kolację we dwoje, spotkanie biznesowe, czy wieczór z przyjaciółmi, wizyta w Sakura Sushi Bar to gwarancja niezapomnianych wrażeń kulinarnych, które pobudzą wszystkie Twoje zmysły i przeniosą Cię na chwilę do Kraju Kwitnącej Wiśni. Zarezerwuj stolik i przeżyj to z nami.</p>
-        <img src="./photos/stolik.png" alt="Elegancko podane sushi w restauracji">
+        <picture>
+            <source srcset="./photos/stolik.webp" type="image/webp">
+            <source srcset="./photos/stolik.png" type="image/png">
+            <img src="./photos/stolik.png" width="1024" height="1024" loading="lazy" decoding="async" alt="Elegancko podane sushi w restauracji">
+        </picture>
     </div>
     <div class="service">
         <h3>Sushi na Wynos i z Dostawą – Jakość w Twoim Domu</h3>
         <p>Pragniesz cieszyć się smakiem naszego sushi w zaciszu własnego domu lub podczas przerwy w pracy? Nasza oferta na wynos i z dostawą to odpowiedź na Twoje potrzeby, bez żadnych kompromisów w kwestii jakości. Każde zamówienie jest przygotowywane z tą samą starannością i z tych samych świeżych składników, co dania serwowane w lokalu. Przykładamy ogromną wagę do pakowania – nasze specjalnie zaprojektowane, eleganckie pudełka nie tylko świetnie wyglądają, ale przede wszystkim chronią delikatną strukturę sushi, utrzymując idealną temperaturę i świeżość. Dzięki temu masz pewność, że Twoje ulubione nigiri, futomaki czy uramaki dotrą do Ciebie w nienagannej formie. Nasz intuicyjny system zamówień online oraz sprawna logistyka dostaw sprawiają, że cały proces jest szybki i wygodny. Zamów zestaw dla siebie lub zaskocz gości na domowym przyjęciu – dostarczymy esencję Sakura Sushi Bar prosto pod Twoje drzwi.</p>
-        <img src="./photos/opakowane.jpeg" alt="Zestaw sushi na wynos w eleganckim opakowaniu">
+        <picture>
+            <source srcset="./photos/opakowane.webp" type="image/webp">
+            <source srcset="./photos/opakowane.jpeg" type="image/jpeg">
+            <img src="./photos/opakowane.jpeg" width="1024" height="1024" loading="lazy" decoding="async" alt="Zestaw sushi na wynos w eleganckim opakowaniu">
+        </picture>
     </div>
     <div class="service">
         <h3>Catering na Imprezy – Elegancja i Smak na Twoim Wydarzeniu</h3>
         <p>Podnieś rangę swojego wydarzenia, serwując gościom coś wyjątkowego. Nasz profesjonalny catering sushi to idealne rozwiązanie na imprezy firmowe, bankiety, wesela oraz prywatne uroczystości. Sushi to nie tylko wykwintny smak, ale również niezwykła estetyka, która zachwyci Twoich gości. Oferujemy w pełni personalizowane menu, dopasowane do charakteru imprezy, liczby osób i budżetu. Nasze pięknie zaaranżowane łodzie i deski sushi stają się centralnym punktem każdego stołu, przyciągając wzrok i apetyt. Dla najbardziej wymagających klientów proponujemy usługę live cooking, podczas której nasz sushi master przygotowuje rolki na żywo, co stanowi niezapomnianą atrakcję. Zapewniamy kompleksową obsługę – od doradztwa w skomponowaniu menu, przez punktualną dostawę, aż po profesjonalny serwis na miejscu. Skontaktuj się z nami, a pomożemy Ci stworzyć kulinarną oprawę, która na długo pozostanie w pamięci Twoich gości.</p>
-        <img src="./photos/catering.png" alt="Duża deska sushi przygotowana na imprezę cateringową">
+        <picture>
+            <source srcset="./photos/catering.webp" type="image/webp">
+            <source srcset="./photos/catering.png" type="image/png">
+            <img src="./photos/catering.png" width="1024" height="1024" loading="lazy" decoding="async" alt="Duża deska sushi przygotowana na imprezę cateringową">
+        </picture>
     </div>
 </section>
 
@@ -83,11 +106,15 @@
 <section class="portfolio">
     <h2>Nasze Kompozycje</h2>
     <div class="project">
-        <img src="./photos/dragon.png" alt="Autorska rolka sushi Dragon Roll">
+        <picture>
+            <source srcset="./photos/dragon.webp" type="image/webp">
+            <source srcset="./photos/dragon.png" type="image/png">
+            <img src="./photos/dragon.png" width="1024" height="1024" loading="lazy" decoding="async" alt="Autorska rolka sushi Dragon Roll">
+        </picture>
         <p>Dragon Roll z grillowanym węgorzem i awokado.</p>
     </div>
     <div class="project">
-        <img src="https://picsum.photos/400/250?random=6" alt="Zestaw sashimi z tuńczyka i łososia">
+        <img src="https://picsum.photos/400/250?random=6" width="400" height="250" loading="lazy" decoding="async" alt="Zestaw sashimi z tuńczyka i łososia">
         <p>Zestaw świeżego sashimi z tuńczyka i łososia.</p>
     </div>
 </section>
