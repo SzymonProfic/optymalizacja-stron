@@ -1,0 +1,427 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Noto+Serif+JP:wght@400;600;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-dark: #0b0f13;
+    --bg-panel: rgba(17, 20, 26, 0.85);
+    --card: rgba(25, 28, 36, 0.9);
+    --accent: #d66b6b;
+    --accent-soft: #f5b6b3;
+    --text: #f0f4f8;
+    --text-muted: rgba(240, 244, 248, 0.72);
+    --border-glow: rgba(214, 107, 107, 0.35);
+    scroll-behavior: smooth;
+}
+
+html {
+    background-color: #090c10;
+}
+
+body {
+    font-family: "Montserrat", "Noto Serif JP", sans-serif;
+    line-height: 1.8;
+    color: var(--text);
+    background:
+        radial-gradient(circle at 20% 20%, rgba(214, 107, 107, 0.08), transparent 50%),
+        radial-gradient(circle at 80% 10%, rgba(121, 162, 189, 0.06), transparent 55%),
+        linear-gradient(135deg, #090c10 0%, #11151b 45%, #1a0f16 100%);
+    min-height: 100vh;
+}
+
+a {
+    color: inherit;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(9, 12, 16, 0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 7vw;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+}
+
+.logo {
+    font-family: "Noto Serif JP", serif;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-soft);
+    font-size: 1rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 28px;
+}
+
+nav a {
+    font-size: 0.85rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--text-muted);
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    width: 12px;
+    height: 2px;
+    background: var(--accent);
+    border-radius: 999px;
+    opacity: 0;
+    transform: translateX(-50%);
+    transition: width 0.3s ease, opacity 0.3s ease;
+}
+
+nav a:hover,
+nav a:focus {
+    color: var(--accent-soft);
+}
+
+nav a:hover::after,
+nav a:focus::after {
+    opacity: 1;
+    width: 32px;
+}
+
+section {
+    padding: 100px 7vw;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.hero {
+    position: relative;
+    padding: 140px 7vw;
+    min-height: 75vh;
+    border-radius: 30px;
+    overflow: hidden;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 24px;
+    background:
+        linear-gradient(120deg, rgba(9, 12, 16, 0.75), rgba(26, 12, 18, 0.88)),
+        url("./photos/sushi.jpg") center/cover;
+}
+
+.hero h1 {
+    font-family: "Noto Serif JP", serif;
+    font-size: clamp(2.4rem, 3.5vw + 1rem, 3.6rem);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.hero p {
+    max-width: 680px;
+    background: rgba(9, 12, 16, 0.68);
+    padding: 24px 26px;
+    border-left: 3px solid var(--accent);
+    border-radius: 0 18px 18px 0;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.button {
+    align-self: flex-start;
+    text-decoration: none;
+    color: var(--text);
+    background: linear-gradient(135deg, var(--accent) 0%, #b93f55 100%);
+    padding: 14px 36px;
+    border-radius: 999px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    font-weight: 600;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 10px 30px rgba(214, 107, 107, 0.3);
+}
+
+.button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 36px rgba(214, 107, 107, 0.45);
+}
+
+.about {
+    display: grid;
+    gap: 32px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    align-items: start;
+    background: var(--bg-panel);
+    border-radius: 26px;
+    padding: 80px 60px;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.about h2 {
+    grid-column: 1 / -1;
+    font-family: "Noto Serif JP", serif;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.about p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.about img {
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
+}
+
+.services {
+    display: grid;
+    gap: 32px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.services h2,
+.blog h2,
+.portfolio h2 {
+    font-family: "Noto Serif JP", serif;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 26px;
+    grid-column: 1 / -1;
+}
+
+.service,
+.blog article,
+.portfolio .project {
+    background: var(--card);
+    border-radius: 24px;
+    padding: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+    display: grid;
+    gap: 16px;
+    position: relative;
+    overflow: hidden;
+}
+
+.service::before,
+.blog article::before,
+.portfolio .project::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, rgba(214, 107, 107, 0.12), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.service:hover::before,
+.blog article:hover::before,
+.portfolio .project:hover::before {
+    opacity: 1;
+}
+
+.service h3,
+.blog h3,
+.portfolio .project p {
+    font-family: "Noto Serif JP", serif;
+    letter-spacing: 0.05em;
+}
+
+.service p,
+.blog p,
+.portfolio p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.service img,
+.portfolio img {
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.blog {
+    display: grid;
+    gap: 32px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.blog h2 {
+    grid-column: 1 / -1;
+}
+
+.blog a {
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    color: var(--accent-soft);
+    text-decoration: none;
+    width: fit-content;
+}
+
+.portfolio {
+    display: grid;
+    gap: 32px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.portfolio h2 {
+    grid-column: 1 / -1;
+}
+
+.portfolio .project {
+    padding-bottom: 24px;
+}
+
+.contact {
+    background: var(--bg-panel);
+    border-radius: 26px;
+    padding: 80px 60px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: grid;
+    gap: 28px;
+}
+
+.contact h3 {
+    font-family: "Noto Serif JP", serif;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+form {
+    display: grid;
+    gap: 18px;
+}
+
+form input,
+form textarea {
+    width: 100%;
+    background: rgba(9, 12, 16, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 14px 18px;
+    border-radius: 14px;
+    color: var(--text);
+    font-size: 0.95rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+form textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+form input:focus,
+form textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(214, 107, 107, 0.18);
+}
+
+form button {
+    justify-self: start;
+    cursor: pointer;
+    border: none;
+    background: linear-gradient(135deg, var(--accent) 0%, #b93f55 100%);
+    color: var(--text);
+    padding: 14px 36px;
+    border-radius: 999px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    font-weight: 600;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 10px 30px rgba(214, 107, 107, 0.3);
+}
+
+form button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 36px rgba(214, 107, 107, 0.45);
+}
+
+footer {
+    text-align: center;
+    padding: 60px 20px;
+    color: rgba(240, 244, 248, 0.6);
+    font-size: 0.8rem;
+    letter-spacing: 0.18em;
+}
+
+@media (max-width: 900px) {
+    header {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    section {
+        padding: 80px 6vw;
+    }
+
+    .about,
+    .contact {
+        padding: 60px 36px;
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        padding: 18px 5vw;
+    }
+
+    .hero {
+        padding: 120px 10vw;
+        border-radius: 24px;
+    }
+
+    .hero p {
+        border-radius: 14px;
+        border-left: none;
+        border-top: 3px solid var(--accent);
+    }
+
+    .logo {
+        letter-spacing: 0.14em;
+        text-align: center;
+    }
+
+    nav ul {
+        gap: 18px;
+    }
+
+    .about,
+    .contact {
+        padding: 48px 28px;
+    }
+
+    form button,
+    .button {
+        width: 100%;
+        text-align: center;
+        justify-self: stretch;
+    }
+}
