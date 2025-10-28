@@ -12,9 +12,9 @@
                 dataLayer.push(arguments);
             }
             gtag("js", new Date());
-
             gtag("config", "G-SS3SWS34ZF");
         </script>
+
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Sakura Sushi Bar - Autentyczne Sushi w Częstochowie</title>
@@ -23,6 +23,7 @@
             content="Odkryj autentyczne smaki Japonii w Sakura Sushi Bar w sercu Częstochowy. Oferujemy świeże sushi, zestawy lunchowe i dostawę. Sprawdź nasze menu i zarezerwuj stolik!"
         />
 
+        <!-- Open Graph -->
         <meta
             property="og:title"
             content="Sakura Sushi Bar - Autentyczne Sushi w Częstochowie"
@@ -37,7 +38,10 @@
             content="https://szymonprofic.github.io/optymalizacja-stron/photos/sushi.webp"
         />
 
-        <link rel="preload" href="style.css" as="style" />
+        <!-- ✅ Stałe ładowanie stylów — usuwa miganie (FOUC) -->
+        <link rel="stylesheet" href="style.css" />
+
+        <!-- Preload tylko obrazów (nie wpływa na CSS) -->
         <link
             rel="preload"
             href="./photos/sushi.webp"
@@ -45,12 +49,8 @@
             imagesrcset="./photos/sushi.webp 1500w"
             imagesizes="100vw"
         />
-        <link
-            rel="stylesheet"
-            href="style.css"
-            media="print"
-            onload="this.media='all'"
-        />
+
+        <!-- (opcjonalnie) Fallback dla użytkowników bez JS -->
         <noscript>
             <link rel="stylesheet" href="style.css" />
         </noscript>
