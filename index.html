@@ -55,7 +55,18 @@
     <body>
         <header>
             <div class="logo">Sakura Sushi Bar</div>
-            <nav>
+            <button
+                class="nav-toggle"
+                type="button"
+                aria-expanded="false"
+                aria-controls="primary-navigation"
+                aria-label="Otwórz menu"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav id="primary-navigation">
                 <ul>
                     <li><a href="#start">Start</a></li>
                     <li><a href="#o-nas">O nas</a></li>
@@ -317,5 +328,51 @@
         <footer>
             <p>© 2025 Sakura Sushi Bar. Wszelkie prawa zastrzeżone.</p>
         </footer>
+        <script>
+            (function () {
+                const header = document.querySelector("header");
+                const toggle = document.querySelector(".nav-toggle");
+                const nav = document.getElementById("primary-navigation");
+
+                if (!header || !toggle || !nav) {
+                    return;
+                }
+
+                const setState = (isOpen) => {
+                    header.classList.toggle("nav-open", isOpen);
+                    toggle.setAttribute("aria-expanded", String(isOpen));
+                    toggle.setAttribute(
+                        "aria-label",
+                        isOpen ? "Zamknij menu" : "Otwórz menu"
+                    );
+                };
+
+                toggle.addEventListener("click", () => {
+                    const isOpen = !header.classList.contains("nav-open");
+                    setState(isOpen);
+                });
+
+                nav.querySelectorAll("a").forEach((link) => {
+                    link.addEventListener("click", () => {
+                        if (window.matchMedia("(max-width: 768px)").matches) {
+                            setState(false);
+                        }
+                    });
+                });
+
+                const mq = window.matchMedia("(min-width: 769px)");
+                const handleViewportChange = (event) => {
+                    if (event.matches) {
+                        setState(false);
+                    }
+                };
+
+                if (mq.addEventListener) {
+                    mq.addEventListener("change", handleViewportChange);
+                } else if (mq.addListener) {
+                    mq.addListener(handleViewportChange);
+                }
+            })();
+        </script>
     </body>
 </html>

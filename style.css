@@ -63,6 +63,71 @@ header {
     font-size: 1rem;
 }
 
+.nav-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(9, 12, 16, 0.6);
+    color: inherit;
+    cursor: pointer;
+    transition: border-color 0.3s ease, background 0.3s ease,
+        transform 0.3s ease;
+    position: relative;
+}
+
+.nav-toggle span {
+    position: absolute;
+    left: 50%;
+    width: 22px;
+    height: 2px;
+    background: var(--text);
+    border-radius: 999px;
+    transform: translateX(-50%);
+    transition: transform 0.3s ease, opacity 0.3s ease, top 0.3s ease;
+}
+
+.nav-toggle span:nth-child(1) {
+    top: 16px;
+}
+
+.nav-toggle span:nth-child(2) {
+    top: 22px;
+}
+
+.nav-toggle span:nth-child(3) {
+    top: 28px;
+}
+
+.nav-toggle:focus-visible,
+.nav-toggle:hover {
+    outline: none;
+    border-color: var(--accent);
+    background: rgba(214, 107, 107, 0.12);
+}
+
+header.nav-open .nav-toggle {
+    border-color: var(--accent);
+    background: rgba(214, 107, 107, 0.12);
+}
+
+header.nav-open .nav-toggle span:nth-child(1) {
+    top: 22px;
+    transform: translateX(-50%) rotate(45deg);
+}
+
+header.nav-open .nav-toggle span:nth-child(2) {
+    opacity: 0;
+}
+
+header.nav-open .nav-toggle span:nth-child(3) {
+    top: 22px;
+    transform: translateX(-50%) rotate(-45deg);
+}
+
 nav ul {
     list-style: none;
     display: flex;
@@ -381,8 +446,9 @@ footer {
 
 @media (max-width: 900px) {
     header {
-        flex-direction: column;
-        gap: 16px;
+        flex-wrap: wrap;
+        gap: 12px;
+        align-items: center;
     }
 
     nav ul {
@@ -397,6 +463,110 @@ footer {
     .about,
     .contact {
         padding: 60px 36px;
+    }
+
+    .hero {
+        padding: 120px 8vw;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 20px 6vw;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .logo {
+        order: 1;
+    }
+
+    .nav-toggle {
+        display: inline-flex;
+        order: 2;
+        margin-left: auto;
+    }
+
+    header nav {
+        order: 3;
+        width: 100%;
+        margin-top: 12px;
+        background: rgba(9, 12, 16, 0.92);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 20px;
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+        overflow: hidden;
+        max-height: 0;
+        padding: 0 20px;
+        opacity: 0;
+        transform: translateY(-12px);
+        pointer-events: none;
+        transition: max-height 0.35s ease, opacity 0.25s ease,
+            transform 0.25s ease, padding 0.25s ease;
+    }
+
+    header.nav-open nav {
+        max-height: 400px;
+        padding: 24px 20px;
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 18px;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    nav li {
+        width: 100%;
+    }
+
+    nav a {
+        display: block;
+        padding: 12px 0;
+    }
+
+    nav a::after {
+        left: 0;
+        transform: none;
+    }
+
+    section {
+        padding: 70px 6vw;
+    }
+
+    .hero {
+        align-items: center;
+        text-align: center;
+        background-position: right;
+    }
+
+    .hero p {
+        max-width: 100%;
+    }
+
+    .button {
+        align-self: center;
+    }
+
+    .about,
+    .contact {
+        padding: 56px 34px;
+    }
+
+    .services,
+    .blog,
+    .portfolio {
+        grid-template-columns: 1fr;
+    }
+
+    .service,
+    .blog article,
+    .portfolio .project {
+        padding: 28px;
     }
 }
 
@@ -423,6 +593,15 @@ footer {
 
     nav ul {
         gap: 18px;
+        align-items: stretch;
+    }
+
+    nav a {
+        padding: 10px 0;
+    }
+
+    .hero h1 {
+        font-size: clamp(2rem, 4vw + 1rem, 2.8rem);
     }
 
     .about,
@@ -435,5 +614,41 @@ footer {
         width: 100%;
         text-align: center;
         justify-self: stretch;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 16px 6vw;
+        gap: 12px;
+    }
+
+    nav ul {
+        gap: 12px;
+    }
+
+    .hero {
+        padding: 100px 8vw;
+        border-radius: 20px;
+    }
+
+    .hero p {
+        padding: 18px 20px;
+        font-size: 0.9rem;
+    }
+
+    section {
+        padding: 54px 24px;
+    }
+
+    .service,
+    .blog article,
+    .portfolio .project {
+        padding: 24px 20px;
+    }
+
+    .about,
+    .contact {
+        padding: 40px 24px;
     }
 }
